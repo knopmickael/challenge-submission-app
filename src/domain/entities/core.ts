@@ -1,6 +1,6 @@
 import crypto from 'crypto';
 
-export abstract class Entity<UnknowParameter> {
+export abstract class Core<UnknowParameter> {
   protected id: string;
   public props: UnknowParameter;
 
