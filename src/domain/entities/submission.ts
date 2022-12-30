@@ -1,4 +1,4 @@
-import { Entity } from "./core";
+import { Core } from "./core";
 
 type SubmissionProps = {
   student_id: string;
@@ -7,7 +7,7 @@ type SubmissionProps = {
   realized_at?: Date;
 }
 
-export class Submission extends Entity<SubmissionProps> {
+export class Submission extends Core<SubmissionProps> {
   constructor(props: SubmissionProps, id?: string) {
     super(props, id);
   }

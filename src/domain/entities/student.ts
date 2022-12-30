@@ -1,11 +1,11 @@
-import { Entity } from "./core";
+import { Core } from "./core";
 
 type StudentProps = {
   name: string;
   email: string;
 }
 
-export class Student extends Entity<StudentProps> {
+export class Student extends Core<StudentProps> {
   constructor(props: StudentProps, id?: string) {
     super(props, id);
   }

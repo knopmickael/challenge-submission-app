@@ -1,4 +1,4 @@
-import { Entity } from "./core";
+import { Core } from "./core";
 
 type ChallengeProps = {
   questions: Object;
@@ -6,7 +6,7 @@ type ChallengeProps = {
   grade: number;
 }
 
-export class Challenge extends Entity<ChallengeProps> {
+export class Challenge extends Core<ChallengeProps> {
   constructor(props: ChallengeProps, id?: string) {
     super(props, id);
   }

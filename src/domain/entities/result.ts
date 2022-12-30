@@ -1,11 +1,11 @@
-import { Entity } from "./core";
+import { Core } from "./core";
 
 type ResultProps = {
   submission_id: string;
   score: number;
 }
 
-export class Result extends Entity<ResultProps> {
+export class Result extends Core<ResultProps> {
   constructor(props: ResultProps, id?: string) {
     super(props, id);
   }

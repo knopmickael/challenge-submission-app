@@ -1,11 +1,11 @@
-import { Entity } from "./core";
+import { Core } from "./core";
 
 type ApplyerProps = {
   name: string;
   email: string;
 }
 
-export class Applyer extends Entity<ApplyerProps> {
+export class Applyer extends Core<ApplyerProps> {
   constructor(props: ApplyerProps, id?: string) {
     super(props, id);
   }
