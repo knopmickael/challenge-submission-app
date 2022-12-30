@@ -1,4 +1,4 @@
-import { Entity } from "../../core/Entity";
+import { Entity } from "../../core/entity";
 
 type ResultProps = {
   submission_id: string;
