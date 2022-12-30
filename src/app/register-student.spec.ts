@@ -1,9 +1,10 @@
 import { RegisterStudent } from "./register-student";
+import { StudentsRepository } from "../infra/repositories/in-memory/students-repository";
 
 describe('register student usecase', () => {
-  it('should instantiate a student', () => {
+  it('should create a student', () => {
 
-    const sut = new RegisterStudent();
+    const sut = new RegisterStudent(new StudentsRepository());
 
     const res = sut.exec({
       name: "Foo Bar",
