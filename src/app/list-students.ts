@@ -15,7 +15,7 @@ export class ListStudents {
     } catch (error) {
       throw new Error("Problems with database integration.");
     }
-
+    
     return response;
   }
 }
