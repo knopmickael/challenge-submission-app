@@ -10,7 +10,7 @@ describe('list students usecase', () => {
     expect(res).toBeTruthy();
   });
   
-  it('should store 3 studants and list their data', async () => {
+  it('should store 3 students and list their data', async () => {
     const repository = new StudentsRepository();
 
     const mockedStudents = [

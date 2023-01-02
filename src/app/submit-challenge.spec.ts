@@ -3,7 +3,7 @@ import { SubmissionsRepository } from "../infra/repositories/in-memory/submissio
 import { SubmitChallenge } from "./submit-challenge";
 
 describe('submit challenge usecase', () => {
-  it('should be able to submit a fake challenge', async () => {
+  it('should submit a fake challenge', async () => {
 
     let repository = new SubmissionsRepository();
 
