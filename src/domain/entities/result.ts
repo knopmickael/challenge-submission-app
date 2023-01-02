@@ -2,7 +2,7 @@ import { CoreEntity } from "../../config/core-entity";
 
 type ResultProps = {
   submission_id: string;
-  score: number;
+  status: number;
 }
 
 export class Result extends CoreEntity<ResultProps> {
