@@ -135,7 +135,7 @@ describe('list challenges usecase', () => {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
   
-  it('should be able to store and retrieve 2 submitted challenges', async () => {
+  it('should be able to store and retrieve 2 submitted challenges with their respective results', async () => {
     
     const students = await createStudents();
     const challenges = await createChallenges();
@@ -152,12 +152,12 @@ describe('list challenges usecase', () => {
       answers: {
         1: "bar",
         2: "",
-        3: "bar"
+        3: ""
       }
     });
     await submitChallengeService.exec({
       student_id: students[rand(0, 2)].id,
-      challenge_id: challenges[0].id,
+      challenge_id: challenges[1].id,
       applyer_id: applyers[rand(0, 2)].id,
       answers: {
         1: "bar",
