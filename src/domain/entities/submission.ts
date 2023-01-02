@@ -5,6 +5,7 @@ type SubmissionProps = {
   challenge_id: string;
   applyer_id: string;
   realized_at?: Date;
+  answers: Object;
 }
 
 export class Submission extends CoreEntity<SubmissionProps> {

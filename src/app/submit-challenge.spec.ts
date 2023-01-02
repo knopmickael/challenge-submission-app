@@ -1,3 +1,4 @@
+import { Submission } from "../domain/entities/submission";
 import { SubmissionsRepository } from "../infra/repositories/in-memory/submissions-repository";
 import { SubmitChallenge } from "./submit-challenge";
 
@@ -11,9 +12,14 @@ describe('submit challenge usecase', () => {
     const res = await sut.exec({
       student_id: "foobar",
       challenge_id: "foobar",
-      applyer_id: "foobar"
+      applyer_id: "foobar",
+      answers: {
+        "foo": "bar"
+      }
     });
-
     expect(res).toBeTruthy();
+    
+    const found = await repository.findById(res.id);
+    expect(found).toBeInstanceOf(Submission);
   });
 });

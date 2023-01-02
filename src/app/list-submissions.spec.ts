@@ -145,13 +145,28 @@ describe('list challenges usecase', () => {
 
     const submitChallengeService = new SubmitChallenge(repository);
 
-    for (let index = 0; index < 2; index++) {
-      await submitChallengeService.exec({
-        student_id: students[rand(0, 2)].id,
-        challenge_id: challenges[rand(0, 1)].id,
-        applyer_id: applyers[rand(0, 2)].id
-      });
-    }
+    await submitChallengeService.exec({
+      student_id: students[rand(0, 2)].id,
+      challenge_id: challenges[0].id,
+      applyer_id: applyers[rand(0, 2)].id,
+      answers: {
+        1: "bar",
+        2: "",
+        3: "bar"
+      }
+    });
+    await submitChallengeService.exec({
+      student_id: students[rand(0, 2)].id,
+      challenge_id: challenges[0].id,
+      applyer_id: applyers[rand(0, 2)].id,
+      answers: {
+        1: "bar",
+        2: "",
+        3: "bar",
+        4: "bar",
+        5: "",
+      }
+    });
 
     const sut = new ListSubmissions(repository);
     const res = await sut.exec();

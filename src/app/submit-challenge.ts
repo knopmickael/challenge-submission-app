@@ -4,7 +4,8 @@ import { SubmissionsRepository } from "../infra/repositories/in-memory/submissio
 type SubmissionPayload = {
   student_id: string,
   challenge_id: string,
-  applyer_id: string
+  applyer_id: string,
+  answers: Object
 }
 
 export class SubmitChallenge {
@@ -13,12 +14,12 @@ export class SubmitChallenge {
     protected repository: SubmissionsRepository
   ) {}
 
-  public async exec({student_id, challenge_id, applyer_id}: SubmissionPayload) {
+  public async exec({student_id, challenge_id, applyer_id, answers}: SubmissionPayload) {
 
     let submission: Submission;
 
     try {
-      submission = Submission.build({student_id, challenge_id, applyer_id});
+      submission = Submission.build({student_id, challenge_id, applyer_id, answers});
     } catch (error) {
       throw new Error("Problems while creating the submission.");
     }
