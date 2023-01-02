@@ -4,9 +4,9 @@ import { ApplyersRepository } from "../infra/repositories/in-memory/applyers-rep
 
 describe('list applyers usecase', () => {
   
-  it('should return empty array', () => {
+  it('should return empty array', async () => {
     const sut = new ListApplyers(new ApplyersRepository());
-    const res = sut.exec();
+    const res = await sut.exec();
     expect(res).toBeTruthy();
   });
   
@@ -27,9 +27,10 @@ describe('list applyers usecase', () => {
         email: "third@applyer.com"
       }
     ];
+
     const registerApplyer = new RegisterApplyer(repository);
-    mockedApplyers.forEach(applyer => {
-      registerApplyer.exec({
+    mockedApplyers.forEach(async applyer => {
+      await registerApplyer.exec({
         name: applyer.name,
         email: applyer.email
       })

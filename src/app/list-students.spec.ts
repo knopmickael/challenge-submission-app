@@ -4,9 +4,9 @@ import { StudentsRepository } from "../infra/repositories/in-memory/students-rep
 
 describe('list students usecase', () => {
   
-  it('should return empty array', () => {
+  it('should return empty array', async () => {
     const sut = new ListStudents(new StudentsRepository());
-    const res = sut.exec();
+    const res = await sut.exec();
     expect(res).toBeTruthy();
   });
   
@@ -27,9 +27,10 @@ describe('list students usecase', () => {
         email: "third@student.com"
       }
     ];
+
     const registerStudent = new RegisterStudent(repository);
-    mockedStudents.forEach(student => {
-      registerStudent.exec({
+    mockedStudents.forEach(async student => {
+      await registerStudent.exec({
         name: student.name,
         email: student.email
       })

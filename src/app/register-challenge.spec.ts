@@ -2,11 +2,11 @@ import { RegisterChallenge } from "./register-challenge";
 import { ChallengesRepository } from "../infra/repositories/in-memory/challenges-repository";
 
 describe('register challenge usecase', () => {
-  it('should create a challenge', () => {
+  it('should create a challenge', async () => {
 
     const sut = new RegisterChallenge(new ChallengesRepository());
 
-    const res = sut.exec({
+    const res = await sut.exec({
       questions: {
         1: "Foo",
         2: "Foo",
