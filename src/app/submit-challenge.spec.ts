@@ -1,9 +1,12 @@
+import { SubmissionsRepository } from "../infra/repositories/in-memory/submissions-repository";
 import { SubmitChallenge } from "./submit-challenge";
 
 describe('submit challenge usecase', () => {
   it('should be able to submit a fake challenge', async () => {
 
-    const sut = new SubmitChallenge();
+    let repository = new SubmissionsRepository();
+
+    const sut = new SubmitChallenge(repository);
     
     const res = await sut.exec({
       student_id: "foobar",
@@ -12,6 +15,5 @@ describe('submit challenge usecase', () => {
     });
 
     expect(res).toBeTruthy();
-
   });
 });
